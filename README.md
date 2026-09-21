@@ -1,6 +1,4 @@
 # huimei-shop-frontend
-课程设计，电商前端页面，HTML+CSS+JS，HBuilder开发
-# huimei-shop-frontend
 惠美购物平台前端｜课程设计项目，使用 HBuilderX 开发
 技术栈：HTML、CSS、JavaScript
 
