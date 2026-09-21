@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>游戏分类 - 惠美平台</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Microsoft YaHei', Arial, sans-serif;
+				background-color: #f8f8f8;
+				color: #333;
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.page-header {
+				background: linear-gradient(135deg, #aa4466 0%, #cc7788 100%);
+				color: white;
+				padding: 30px 0;
+				text-align: center;
+				margin-bottom: 30px;
+				border-radius: 8px;
+			}
+			.page-header h1 {
+				font-size: 32px;
+				margin-bottom: 10px;
+			}
+			.page-header p {
+				font-size: 16px;
+				opacity: 0.9;
+			}
+			.product-section {
+				margin-bottom: 40px;
+			}
+			.section-title {
+				font-size: 24px;
+				color: #333;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+				border-bottom: 2px solid #aa4466;
+			}
+			.product-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+			}
+			.product-card {
+				background: white;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+			}
+			.product-image {
+				width: 100%;
+				height: 200px;
+				border-radius: 6px;
+				margin-bottom: 15px;
+				object-fit: cover;
+			}
+			.product-name {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				color: #333;
+			}
+			.product-desc {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 15px;
+				line-height: 1.5;
+			}
+			.product-price {
+				font-size: 22px;
+				color: #aa4466;
+				font-weight: bold;
+			}
+			.product-price span {
+				font-size: 14px;
+				color: #999;
+				text-decoration: line-through;
+				margin-left: 10px;
+			}
+			.promotion-banner {
+				background: linear-gradient(45deg, #aa4466, #dd8899);
+				color: white;
+				padding: 20px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+			}
+			.promotion-banner h3 {
+				margin-bottom: 10px;
+			}
+			.btn {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #aa4466;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.3s ease;
+			}
+			.btn:hover {
+				background-color: #993355;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>🎮 游戏分类</h1>
+				<p>游戏世界，娱乐无限，畅玩无忧</p>
+			</div>
+
+			<div class="promotion-banner">
+				<h3>🎯 游戏特惠
+				<p>热门游戏低至5折，满300减100，满500减200！
+				<a href="#" class="btn">立即购买
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">热门游戏
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="https://picsum.photos/seed/game1/400/300.jpg" alt="竞技类游戏" class="product-image">
+						<div class="product-name">竞技类游戏
+						<div class="product-desc">热血竞技，刺激对抗，多人联机
+						<div class="product-price">¥299 <span>¥499
+					</div>
+					<div class="product-card">
+						<img src="https://picsum.photos/seed/game2/400/300.jpg" alt="角色扮演游戏" class="product-image">
+						<div class="product-name">角色扮演游戏
+						<div class="product-desc">沉浸式剧情，丰富角色，开放世界
+						<div class="product-price">¥399 <span>¥599
+					</div>
+					<div class="product-card">
+						<img src="https://picsum.photos/seed/game3/400/300.jpg" alt="策略类游戏" class="product-image">
+						<div class="product-name">策略类游戏
+						<div class="product-desc">烧脑益智，策略对决，智商碾压
+						<div class="product-price">¥199 <span>¥299
+					</div>
+					<div class="product-card">
+						<img src="https://picsum.photos/seed/game4/400/300.jpg" alt="休闲益智游戏" class="product-image">
+						<div class="product-name">休闲益智游戏
+						<div class="product-desc">轻松娱乐，碎片时间，锻炼思维
+						<div class="product-price">¥99 <span>¥159
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

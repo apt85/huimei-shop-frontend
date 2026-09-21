@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #fff;
+            height: 100%;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #ff4466;
+        }
+        .logo span { color: #333; }
+        .search-wrap {
+            display: flex;
+            align-items: center;
+        }
+        .search-input {
+            width: 500px;
+            height: 40px;
+            padding: 0 15px;
+            border: 2px solid #ff4466;
+            outline: none;
+            font-size: 14px;
+        }
+        .search-btn {
+            height: 40px;
+            width: 100px;
+            background: #ff4466;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .search-btn:hover { background: #e03858; }
+		.hot-words {
+		    font-size: 12px;
+		    color: #999;
+		    margin-top: 5px;
+		}
+		.hot-words a {
+		    text-decoration: none;
+		    color: #666;
+		    margin-right: 10px;
+		}
+		.hot-words a:hover { color: #ff4466; }
+    </style>
+</head>
+<body>
+    <div class="logo">惠美交易</div>
+    <div>
+        <div class="search-wrap">
+            <input type="text" class="search-input" placeholder="搜索内容...">
+            <button class="search-btn">搜索</button>
+        </div>
+		<div class="hot-words">
+		            <a href="https://s.taobao.com/search?q=拼豆" target="_blank">拼豆</a>
+		            <a href="https://s.taobao.com/search?q=围巾" target="_blank">围巾</a>
+		            <a href="https://s.taobao.com/search?q=保暖内衣" target="_blank">保暖内衣</a>
+		            <a href="https://s.taobao.com/search?q=大衣" target="_blank">大衣</a>
+		            <a href="https://s.taobao.com/search?q=保温杯" target="_blank">保温杯</a>
+					<a href="https://s.taobao.com/search?q=嘴馋小零食" target="_blank">嘴馋小零食</a>
+		</div>
+    </div>
+</body>
+</html>

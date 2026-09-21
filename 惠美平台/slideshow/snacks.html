@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>零食专场 - 惠美平台</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Microsoft YaHei', Arial, sans-serif;
+				background-color: #f8f8f8;
+				color: #333;
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.page-header {
+				background: linear-gradient(135deg, #ff4466 0%, #ff6688 100%);
+				color: white;
+				padding: 30px 0;
+				text-align: center;
+				margin-bottom: 30px;
+				border-radius: 8px;
+			}
+			.page-header h1 {
+				font-size: 32px;
+				margin-bottom: 10px;
+			}
+			.page-header p {
+				font-size: 16px;
+				opacity: 0.9;
+			}
+			.product-section {
+				margin-bottom: 40px;
+			}
+			.section-title {
+				font-size: 24px;
+				color: #333;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+				border-bottom: 2px solid #ff4466;
+			}
+			.product-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+			}
+			.product-card {
+				background: white;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+			}
+			.product-image {
+				width: 100%;
+				height: 200px;
+				border-radius: 6px;
+				margin-bottom: 15px;
+				object-fit: cover;
+			}
+			.product-name {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				color: #333;
+			}
+			.product-desc {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 15px;
+				line-height: 1.5;
+			}
+			.product-price {
+				font-size: 22px;
+				color: #ff4466;
+				font-weight: bold;
+			}
+			.product-price span {
+				font-size: 14px;
+				color: #999;
+				text-decoration: line-through;
+				margin-left: 10px;
+			}
+			.promotion-banner {
+				background: linear-gradient(45deg, #ff4466, #ff8899);
+				color: white;
+				padding: 20px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+			}
+			.promotion-banner h3 {
+				margin-bottom: 10px;
+			}
+			.btn {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #ff4466;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.3s ease;
+			}
+			.btn:hover {
+				background-color: #e63355;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>🍬 零食专场</h1>
+				<p>美味零食，享受生活！全场零食6.9折起，满减优惠等您来！</p>
+			</div>
+
+			<div class="promotion-banner">
+				<h3>🎉 零食狂欢节</h3>
+				<p>满99减20，满199减50，满299减80！零食大礼包限量抢购，先到先得！</p>
+				<a href="#" class="btn">立即购买</a>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">休闲零食</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/snacks_1.jpg" alt="香脆薯片大礼包" class="product-image">
+						<div class="product-name">香脆薯片大礼包</div>
+						<div class="product-desc">混合口味，20包组合装，薄脆口感，休闲必备</div>
+						<div class="product-price">¥39.9 <span>¥59.9</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/snacks_2.jpg" alt="进口巧克力礼盒" class="product-image">
+						<div class="product-name">进口巧克力礼盒</div>
+						<div class="product-desc">比利时进口，纯可可脂，多种口味，送礼首选</div>
+						<div class="product-price">¥89.9 <span>¥129.9</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/snacks_3.jpg" alt="坚果混合装" class="product-image">
+						<div class="product-name">坚果混合装</div>
+						<div class="product-desc">每日坚果，营养均衡，新鲜美味，健康零食</div>
+						<div class="product-price">¥69.9 <span>¥99.9</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/snacks_4.jpg" alt="果脯蜜饯组合" class="product-image">
+						<div class="product-name">果脯蜜饯组合</div>
+						<div class="product-desc">多种水果干，酸甜可口，独立包装，方便携带</div>
+						<div class="product-price">¥55.9 <span>¥79.9</span></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">特色美食</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/snacks_5.jpg" alt="手工饼干礼盒" class="product-image">
+						<div class="product-name">手工饼干礼盒</div>
+						<div class="product-desc">手工制作，无添加，多种口味，健康美味</div>
+						<div class="product-price">¥59.9 <span>¥89.9</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/snacks_6.jpg" alt="进口咖啡套装" class="product-image">
+						<div class="product-name">进口咖啡套装</div>
+						<div class="product-desc">精选咖啡豆，多口味，香醇浓郁，提神醒脑</div>
+						<div class="product-price">¥75.9 <span>¥109.9</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/snacks_7.jpg" alt="海鲜零食大礼包" class="product-image">
+						<div class="product-name">海鲜零食大礼包</div>
+						<div class="product-desc">鱿鱼丝、鱼干等，海鲜风味，休闲美味</div>
+						<div class="product-price">¥65.9 <span>¥95.9</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/snacks_8.jpg" alt="网红零食组合" class="product-image">
+						<div class="product-name">网红零食组合</div>
+						<div class="product-desc">抖音小红书推荐，热门零食，一网打尽</div>
+						<div class="product-price">¥88.9 <span>¥128.9</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

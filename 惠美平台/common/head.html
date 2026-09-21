@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: #333;
+            height: 60px;
+            line-height: 60px;
+            padding: 0 20px;
+            overflow: visible !important;
+        }
+        .head-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .head-nav .left { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+        }
+        .head-nav .right { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+        }
+        #countries {
+            background: #444;
+            color: #fff;
+            border: none;
+            padding: 4px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #countries option {
+            background: #333;
+            color: #fff;
+        }
+        .head-nav a {
+            text-decoration: none;
+            color: #ccc;
+            font-size: 12px;
+        }
+        .head-nav a:hover { color: #fff; }
+        .head-nav .split { color: #444; }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-btn {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            min-width: 150px;
+            background: #fff !important;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 99999 !important;
+            display: none;
+        }
+        .dropdown-menu a {
+            display: block;
+            color: #333 !important;
+            padding: 8px 12px;
+            margin: 0;
+            line-height: 24px;
+        }
+        .dropdown-menu a:hover {
+            background: #f5f5f5;
+            color: #ff4466 !important;
+        }
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-nav">
+        <div class="left">
+            <select id="countries" name="countries">
+                <option value="china-mainland">中国大陆</option>
+                <option value="china-hongkong">中国香港特别行政区</option>
+                <option value="china-macao">中国澳门特别行政区</option>
+                <option value="china-taiwan">中国台湾地区</option>
+                <option value="usa">美国</option>
+                <option value="canada">加拿大</option>
+                <option value="australia">澳大利亚</option>
+                <option value="singapore">新加坡</option>
+                <option value="korea">韩国</option>
+                <option value="japan">日本</option>
+                <option value="overseas">海外（除中国港澳台地区外）</option>
+            </select>
+            <a href="#">惠美首页</a>
+            <a href="../user/enter.html" target="_blank">你好，请登录</a>
+            <span class="split">|</span>
+            <a href="login.html" target="_blank">免费注册</a>
+            <a href="#">网页无障碍浏览</a>
+        </div>
+        <div class="right">
+            <a href="#">我的订单</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">我的惠美 ▼</button>
+                <div class="dropdown-menu">
+                    <a href="#">待处理订单</a>
+                    <a href="#">返修退换货</a>
+                    <a href="#">我的卡券包</a>
+                    <a href="#">我的问答</a>
+                </div>
+            </div>
+            <a href="#">🛒购物车</a>
+            <a href="#">⭐收藏夹</a>
+            <a href="#">物流管理</a>
+            <a href="#">客户服务</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线客服 - 惠美平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #ff4466;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .service-content {
+            margin-bottom: 40px;
+        }
+        
+        .service-item {
+            background: #f8f9fa;
+            border-left: 4px solid #ff4466;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .service-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 4px 12px rgba(255, 68, 102, 0.15);
+        }
+        
+        .service-item h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .service-item p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, #ff6b6b, #ff4466);
+            color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(255, 68, 102, 0.3);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .contact-card p {
+            opacity: 0.9;
+        }
+        
+        .chat-area {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+        
+        .chat-box {
+            background: #e9ecef;
+            border-radius: 8px;
+            height: 300px;
+            margin-bottom: 20px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .chat-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .chat-input button {
+            background: #ff4466;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+        
+        .chat-input button:hover {
+            background: #e03858;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💬 在线客服</h1>
+            <p>7×24小时为您解答疑问</p>
+        </div>
+        
+        <div class="service-content">
+            <div class="service-item">
+                <h3>专业客服团队</h3>
+                <p>我们拥有经验丰富的客服人员，随时为您提供专业的服务和支持。</p>
+            </div>
+            <div class="service-item">
+                <h3>快速响应</h3>
+                <p>我们承诺在5分钟内对您的问题进行回复，确保您的问题得到及时处理。</p>
+            </div>
+            <div class="service-item">
+                <h3>多渠道支持</h3>
+                <p>无论您有什么问题，都可以通过在线聊天、电话或邮件与我们联系。</p>
+            </div>
+        </div>
+        
+        <div class="contact-methods">
+            <div class="contact-card">
+                <h3>📞 客服热线</h3>
+                <p>400-123-4567</p>
+                <p>24小时服务</p>
+            </div>
+            <div class="contact-card">
+                <h3>✉️ 电子邮箱</h3>
+                <p>service@huimei.com</p>
+                <p>1个工作日内回复</p>
+            </div>
+            <div class="contact-card">
+                <h3>💬 在线聊天</h3>
+                <p>立即开始对话</p>
+                <p>5分钟内响应</p>
+            </div>
+        </div>
+        
+        <div class="chat-area">
+            <h3>在线聊天</h3>
+            <div class="chat-box" id="chatBox">
+                <div style="color: #666; text-align: center; margin-top: 120px;">欢迎使用在线客服！请输入您的问题。</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="messageInput" placeholder="输入您的问题...">
+                <button onclick="sendMessage()">发送</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const chatBox = document.getElementById('chatBox');
+            const message = input.value;
+            
+            if (message.trim()) {
+                const messageElement = document.createElement('div');
+                messageElement.style.background = '#ff4466';
+                messageElement.style.color = '#fff';
+                messageElement.style.padding = '10px 15px';
+                messageElement.style.borderRadius = '8px';
+                messageElement.style.margin = '10px 0';
+                messageElement.style.textAlign = 'right';
+                messageElement.textContent = message;
+                chatBox.appendChild(messageElement);
+                chatBox.scrollTop = chatBox.scrollHeight;
+                input.value = '';
+                setTimeout(() => {
+                    const replyElement = document.createElement('div');
+                    replyElement.style.background = '#666';
+                    replyElement.style.color = '#fff';
+                    replyElement.style.padding = '10px 15px';
+                    replyElement.style.borderRadius = '8px';
+                    replyElement.style.margin = '10px 0';
+                    replyElement.style.textAlign = 'left';
+                    replyElement.textContent = '感谢您的咨询！我们的客服正在为您处理，稍等片刻即可得到回复。';
+                    chatBox.appendChild(replyElement);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+            }
+        }
+        document.getElementById('messageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html>

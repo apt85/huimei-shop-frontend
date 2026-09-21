@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商品分类 - 惠美平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft Yahei", Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .category-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .category-item {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .category-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .category-name {
+            font-size: 1.1em;
+            color: #333;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="text-align: center; color: #ff4466; font-size: 2em; margin-bottom: 20px;">🎯 商品分类</h2>
+        <div class="category-list"> 
+            <div class="category-item" data-link="costume.html"> 
+                <div class="category-icon">👚</div> 
+                <div class="category-name">服装</div> 
+            </div> 
+            <div class="category-item" data-link="shoes.html"> 
+                <div class="category-icon">👟</div> 
+                <div class="category-name">鞋子</div> 
+            </div> 
+            <div class="category-item" data-link="beauty.html"> 
+                <div class="category-icon">💄</div> 
+                <div class="category-name">美妆</div> 
+            </div> 
+            <div class="category-item" data-link="digital.html"> 
+                <div class="category-icon">📱</div> 
+                <div class="category-name">数码</div> 
+            </div> 
+            <div class="category-item" data-link="home.html"> 
+                <div class="category-icon">🏠</div> 
+                <div class="category-name">家居</div> 
+            </div> 
+            <div class="category-item" data-link="food.html"> 
+                <div class="category-icon">🍎</div> 
+                <div class="category-name">食品</div> 
+            </div> 
+            <div class="category-item" data-link="books.html"> 
+                <div class="category-icon">📚</div> 
+                <div class="category-name">图书</div> 
+            </div> 
+            <div class="category-item" data-link="games.html"> 
+                <div class="category-icon">🎮</div> 
+                <div class="category-name">游戏</div> 
+            </div> 
+        </div>
+    </div>
+    <script>
+        // 为分类项添加点击事件
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const link = this.getAttribute('data-link');
+                if (link && link !== '#') {
+                    window.location.href = link;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

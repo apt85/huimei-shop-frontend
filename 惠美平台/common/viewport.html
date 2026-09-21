@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片轮播组件（支持点击打开新页面）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            list-style: none;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* 轮播容器样式 */
+        .carousel-container {
+            width: 90%;
+            max-width: 1000px;
+            height: 550px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            background: #1a1a2e;
+        }
+
+        /* 轮播图片列表 */
+        .carousel-list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); /* 更平滑的动画 */
+        }
+
+        /* 轮播图片项 */
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .carousel-item:hover {
+            transform: scale(1.02);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* 图片叠加效果 */
+        .carousel-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, 
+                rgba(0,0,0,0.1) 0%, 
+                rgba(0,0,0,0) 50%, 
+                rgba(0,0,0,0.3) 100%);
+            z-index: 1;
+        }
+
+        /* 左右切换按钮 */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9) 0%, rgba(118, 75, 162, 0.9) 100%);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .carousel-btn:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .carousel-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .prev-btn {
+            left: 20px;
+        }
+
+        .next-btn {
+            right: 20px;
+        }
+
+        /* 指示器容器 */
+        .indicator-container {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        /* 指示器样式 */
+        .indicator {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+
+        .indicator:hover {
+            background-color: rgba(255,255,255,0.7);
+            transform: scale(1.15);
+        }
+
+        .indicator.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: scale(1.4);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
+            border-color: white;
+        }
+
+        /* 轮播标题 */
+        .carousel-title {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 10;
+            background: rgba(0,0,0,0.3);
+            padding: 10px 30px;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container" id="carousel">
+        <!-- 轮播标题 -->
+        <div class="carousel-title">精选好物</div>
+        
+        <!-- 图片列表 -->
+        <div class="carousel-list" id="carouselList">
+            <div class="carousel-item" data-link="../slideshow/homeappliances.html">
+                <img src="../pictures/轮播1.png" alt="轮播图片1">
+            </div>
+            <div class="carousel-item" data-link="../slideshow/snacks.html">
+                <img src="../pictures/轮播2.png" alt="轮播图片2">
+            </div>
+            <div class="carousel-item" data-link="../slideshow/cellphone.html">
+                <img src="../pictures/轮播3.png" alt="轮播图片3">
+            </div>
+            <div class="carousel-item" data-link="../slideshow/furniture.html">
+                <img src="../pictures/轮播4.png" alt="轮播图片4">
+            </div>
+            <div class="carousel-item" data-link="../slideshow/numericalcode.html">
+                <img src="../pictures/轮播5.png" alt="轮播图片5">
+            </div>
+            <div class="carousel-item" data-link="../slideshow/costume.html">
+                <img src="../pictures/轮播6.png" alt="轮播图片6">
+            </div>
+        </div>
+
+        <!-- 左右切换按钮 -->
+        <button class="carousel-btn prev-btn" id="prevBtn">‹</button>
+        <button class="carousel-btn next-btn" id="nextBtn">›</button>
+
+        <!-- 指示器 -->
+        <div class="indicator-container" id="indicatorContainer"></div>
+    </div>
+
+    <script>
+        // 获取DOM元素
+        const carouselContainer = document.getElementById('carousel');
+        const carouselList = document.getElementById('carouselList');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorContainer = document.getElementById('indicatorContainer');
+
+        // 轮播核心参数
+        const itemCount = carouselItems.length;
+        const itemWidth = carouselContainer.offsetWidth;
+        let currentIndex = 0;
+        let carouselTimer = null;
+
+        // 1. 动态生成指示器
+        function createIndicators() {
+            indicatorContainer.innerHTML = '';
+            for (let i = 0; i < itemCount; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = `indicator ${i === currentIndex ? 'active' : ''}`;
+                indicator.dataset.index = i;
+                indicator.addEventListener('click', function() {
+                    const index = parseInt(this.dataset.index);
+                    goToIndex(index);
+                });
+                indicatorContainer.appendChild(indicator);
+            }
+        }
+
+        // 2. 跳转到指定索引的图片
+        function goToIndex(index) {
+            if (index < 0) index = itemCount - 1;
+            if (index >= itemCount) index = 0;
+            currentIndex = index;
+            carouselList.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            updateIndicators();
+        }
+
+        // 3. 更新指示器激活状态
+        function updateIndicators() {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        // 4. 上一张图片
+        function prevImage() {
+            goToIndex(currentIndex - 1);
+        }
+
+        // 5. 下一张图片
+        function nextImage() {
+            goToIndex(currentIndex + 1);
+        }
+
+        // 6. 开启自动轮播
+        function startAutoCarousel() {
+            clearInterval(carouselTimer);
+            carouselTimer = setInterval(() => {
+                nextImage();
+            }, 3500);
+        }
+
+        // 7. 停止自动轮播
+        function stopAutoCarousel() {
+            clearInterval(carouselTimer);
+        }
+
+        // 8. 窗口大小改变时处理
+        window.addEventListener('resize', function() {
+            const newWidth = carouselContainer.offsetWidth;
+            if (newWidth !== itemWidth) {
+                itemWidth = newWidth;
+                goToIndex(currentIndex);
+            }
+        });
+
+        // 图片点击事件
+        function bindImageClickEvent() {
+            carouselItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const targetLink = this.dataset.link;
+                    if (targetLink) {
+                        window.open(targetLink, '_blank');
+                    }
+                });
+            });
+        }
+
+        // 绑定事件
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+        carouselContainer.addEventListener('mouseenter', stopAutoCarousel);
+        carouselContainer.addEventListener('mouseleave', startAutoCarousel);
+
+        // 初始化
+        function initCarousel() {
+            createIndicators();
+            goToIndex(0);
+            startAutoCarousel();
+            bindImageClickEvent();
+        }
+
+        window.addEventListener('load', initCarousel);
+    </script>
+</body>
+</html>

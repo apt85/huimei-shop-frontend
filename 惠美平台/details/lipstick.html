@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>口红套装 - 惠美平台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: "Microsoft Yahei", Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .product-detail {
+            background: #fff;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        .product-image {
+            background: #f0f0f0;
+            border-radius: 8px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 150px;
+        }
+        .product-info h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .price {
+            font-size: 2em;
+            color: #ff4466;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+        .description {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+        .features {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        .features li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        .product-actions {
+            margin-top: 30px;
+        }
+        .buy-btn, .cart-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        .buy-btn { background: #ff4466; color: #fff; }
+        .buy-btn:hover { background: #e03858; transform: translateY(-2px); }
+        .cart-btn { background: #ffd700; color: #333; }
+        .cart-btn:hover { background: #ffc107; transform: translateY(-2px); }
+        @media (max-width: 768px) {
+            .product-detail { grid-template-columns: 1fr; gap: 20px; }
+            .product-image { height: 250px; font-size: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-detail">
+            <div class="product-image">💄</div>
+            <div class="product-info">
+                <h1>口红套装</h1>
+                <div class="price">¥199.00</div>
+                <div class="description">
+                    精选多色口红套装，持久保湿，色彩鲜艳，质地丝滑，提升气色，展现女性魅力。
+                </div>
+                <h3 style="margin: 20px 0; color: #333;">产品特点</h3>
+                <ul class="features">
+                    <li>多色套装，满足不同场合需求</li>
+                    <li>持久不掉色，长效保持
+                    <li>滋润保湿配方，呵护双唇
+                    <li>丝滑质地，易涂抹
+                    <li>时尚包装，送礼佳品
+                </ul>
+                <div class="product-actions">
+                    <button class="buy-btn">立即购买</button>
+                    <button class="cart-btn">加入购物车</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

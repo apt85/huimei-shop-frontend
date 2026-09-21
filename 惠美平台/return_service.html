@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>退换货服务 - 惠美平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 40px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            color: #ff4466;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .return-process {
+            margin: 40px 0;
+        }
+        
+        .process-step {
+            background: #f8f9fa;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #ff4466;
+        }
+        
+        .process-step h3 {
+            color: #ff4466;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .process-step h3::before {
+            content: attr(data-step);
+            background: #ff4466;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .process-step ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .process-step li {
+            padding: 5px 0;
+            color: #666;
+        }
+        
+        .process-step li::before {
+            content: '✓';
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .requirements {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .requirements h3 {
+            color: #d63031;
+            margin-bottom: 15px;
+        }
+        
+        .requirements ul {
+            list-style: none;
+            color: #555;
+        }
+        
+        .requirements li {
+            padding: 5px 0;
+        }
+        
+        .requirements li::before {
+            content: '⚠';
+            margin-right: 10px;
+            color: #d63031;
+        }
+        
+        .faq-section {
+            margin: 40px 0;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        
+        .faq-item h4 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .faq-item p {
+            color: #666;
+        }
+        
+        .apply-button {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .apply-button button {
+            background: linear-gradient(135deg, #ff4466, #ff6b6b);
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 68, 102, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .apply-button button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 68, 102, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔄 退换货服务</h1>
+            <p>快速处理您的退换货需求</p>
+        </div>
+        
+        <div class="requirements">
+            <h3>退换货须知</h3>
+            <ul>
+                <li>商品需保持原包装完好，不影响二次销售</li>
+                <li>退换货申请需在收货后7天内提交</li>
+                <li>请提供清晰的商品照片和购买凭证</li>
+                <li>定制商品不支持退换货服务</li>
+            </ul>
+        </div>
+        
+        <div class="return-process">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333;">退换货流程</h2>
+            <div class="process-step">
+                <h3 data-step="1">提交申请</h3>
+                <ul>
+                    <li>登录账号，在订单列表中选择需要退换的订单</li>
+                    <li>填写退换货原因并上传商品照片</li>
+                    <li>提交申请后等待审核</li>
+                </ul>
+            </div>
+            <div class="process-step">
+                <h3 data-step="2">审核处理</h3>
+                <ul>
+                    <li>我们的客服将在24小时内审核您的申请</li>
+                    <li>审核通过后，系统将发送退换货地址</li>
+                    <li>审核未通过将说明具体原因</li>
+                </ul>
+            </div>
+            <div class="process-step">
+                <h3 data-step="3">商品寄回</h3>
+                <ul>
+                    <li>按照指定地址寄回商品
+                    <li>请妥善保管快递单号
+                    <li>运费根据具体情况可能由我们承担
+                </ul>
+            </div>
+            <div class="process-step">
+                <h3 data-step="4">退款/换货
+                <ul>
+                    <li>收到商品后，我们将在3个工作日内处理
+                    <li>退款将原路返回您的支付账户
+                    <li>换货商品将尽快发出
+                </ul>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #333;">常见问题
+            </div>
+            <div class="faq-item">
+                <h4>退换货需要多久处理？
+                <p>通常情况下，从提交申请到完成退款/换货需要3-7个工作日。
+            </div>
+            <div class="faq-item">
+                <h4>运费由谁承担？
+                <p>如果是商品质量问题，运费由我们承担；如果是个人原因，运费需要您自行承担。
+            </div>
+            <div class="faq-item">
+                <h4>退款将返回哪里？
+                <p>退款将原路返回您的支付账户，具体到账时间取决于支付方式。
+            </div>
+        </div>
+        
+        <div class="apply-button">
+            <button onclick="applyReturn()">立即申请退换货
+            </button>
+        </div>
+    </div>
+    <script>
+        function applyReturn() {
+            alert('退换货申请页面将打开，您可以选择需要退换的订单并填写相关信息。');
+        }
+    </script>
+</body>
+</html>

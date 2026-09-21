@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>数码专场 - 惠美平台</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Microsoft YaHei', Arial, sans-serif;
+				background-color: #f8f8f8;
+				color: #333;
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.page-header {
+				background: linear-gradient(135deg, #ff4466 0%, #ff6688 100%);
+				color: white;
+				padding: 30px 0;
+				text-align: center;
+				margin-bottom: 30px;
+				border-radius: 8px;
+			}
+			.page-header h1 {
+				font-size: 32px;
+				margin-bottom: 10px;
+			}
+			.page-header p {
+				font-size: 16px;
+				opacity: 0.9;
+			}
+			.product-section {
+				margin-bottom: 40px;
+			}
+			.section-title {
+				font-size: 24px;
+				color: #333;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+				border-bottom: 2px solid #ff4466;
+			}
+			.product-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+			}
+			.product-card {
+				background: white;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+			}
+			.product-image {
+				width: 100%;
+				height: 200px;
+				border-radius: 6px;
+				margin-bottom: 15px;
+				object-fit: cover;
+			}
+			.product-name {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				color: #333;
+			}
+			.product-desc {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 15px;
+				line-height: 1.5;
+			}
+			.product-price {
+				font-size: 22px;
+				color: #ff4466;
+				font-weight: bold;
+			}
+			.product-price span {
+				font-size: 14px;
+				color: #999;
+				text-decoration: line-through;
+				margin-left: 10px;
+			}
+			.promotion-banner {
+				background: linear-gradient(45deg, #ff4466, #ff8899);
+				color: white;
+				padding: 20px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+			}
+			.promotion-banner h3 {
+				margin-bottom: 10px;
+			}
+			.btn {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #ff4466;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.3s ease;
+			}
+			.btn:hover {
+				background-color: #e63355;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>💻 数码专场</h1>
+				<p>最新数码产品，科技前沿！全场数码产品8.5折起，满减优惠！</p>
+			</div>
+
+			<div class="promotion-banner">
+				<h3>🚀 数码科技节</h3>
+				<p>满2000减200，满5000减600，买就送精美礼品！限时抢购，数量有限！</p>
+				<a href="#" class="btn">立即抢购</a>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">电脑办公</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/numericalcode_1.jpg" alt="游戏笔记本电脑" class="product-image">
+						<div class="product-name">游戏笔记本电脑</div>
+						<div class="product-desc">酷睿i9处理器，RTX 4070显卡，16GB内存，2TB SSD，17.3英寸高刷屏</div>
+						<div class="product-price">¥9999 <span>¥13999</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/numericalcode_2.jpg" alt="轻薄笔记本电脑" class="product-image">
+						<div class="product-name">轻薄笔记本电脑</div>
+						<div class="product-desc">13.3英寸，重量999克，16GB内存，512GB SSD，超长续航18小时</div>
+						<div class="product-price">¥6999 <span>¥8999</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/numericalcode_3.jpg" alt="无线蓝牙鼠标" class="product-image">
+						<div class="product-name">无线蓝牙鼠标</div>
+						<div class="product-desc">精准定位，人体工学设计，静音按键，充电式，续航3个月</div>
+						<div class="product-price">¥299 <span>¥499</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/numericalcode_4.jpg" alt="机械键盘" class="product-image">
+						<div class="product-name">机械键盘</div>
+						<div class="product-desc">青轴机械按键，RGB背光，全键无冲，可拆卸手托，打字舒适</div>
+						<div class="product-price">¥499 <span>¥799</span></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">音频设备</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/numericalcode_5.jpg" alt="无线蓝牙耳机" class="product-image">
+						<div class="product-name">无线蓝牙耳机</div>
+						<div class="product-desc">主动降噪，40小时续航，蓝牙5.3，HiFi音质，智能触控</div>
+						<div class="product-price">¥799 <span>¥1199</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/numericalcode_6.jpg" alt="降噪头戴耳机" class="product-image">
+						<div class="product-name">降噪头戴耳机</div>
+						<div class="product-desc">ANC主动降噪，40mm驱动单元，50小时续航，舒适耳罩</div>
+						<div class="product-price">¥1299 <span>¥1799</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/numericalcode_7.jpg" alt="便携式蓝牙音箱" class="product-image">
+						<div class="product-name">蓝牙音箱</div>
+						<div class="product-desc">360度环绕音效，IPX7防水，24小时续航，低音强劲</div>
+						<div class="product-price">¥599 <span>¥899</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/numericalcode_8.jpg" alt="游戏耳机" class="product-image">
+						<div class="product-name">游戏耳机</div>
+						<div class="product-desc">7.1环绕音效，降噪麦克风，RGB灯光，舒适透气</div>
+						<div class="product-price">¥399 <span>¥599</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>家电专场 - 惠美平台</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Microsoft YaHei', Arial, sans-serif;
+				background-color: #f8f8f8;
+				color: #333;
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.page-header {
+				background: linear-gradient(135deg, #ff4466 0%, #ff6688 100%);
+				color: white;
+				padding: 30px 0;
+				text-align: center;
+				margin-bottom: 30px;
+				border-radius: 8px;
+			}
+			.page-header h1 {
+				font-size: 32px;
+				margin-bottom: 10px;
+			}
+			.page-header p {
+				font-size: 16px;
+				opacity: 0.9;
+			}
+			.product-section {
+				margin-bottom: 40px;
+			}
+			.section-title {
+				font-size: 24px;
+				color: #333;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+				border-bottom: 2px solid #ff4466;
+			}
+			.product-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+			}
+			.product-card {
+				background: white;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+			}
+			.product-image {
+				width: 100%;
+				height: 200px;
+				border-radius: 6px;
+				margin-bottom: 15px;
+				object-fit: cover;
+			}
+			.product-name {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				color: #333;
+			}
+			.product-desc {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 15px;
+				line-height: 1.5;
+			}
+			.product-price {
+				font-size: 22px;
+				color: #ff4466;
+				font-weight: bold;
+			}
+			.product-price span {
+				font-size: 14px;
+				color: #999;
+				text-decoration: line-through;
+				margin-left: 10px;
+			}
+			.promotion-banner {
+				background: linear-gradient(45deg, #ff4466, #ff8899);
+				color: white;
+				padding: 20px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+			}
+			.promotion-banner h3 {
+				margin-bottom: 10px;
+			}
+			.btn {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #ff4466;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.3s ease;
+			}
+			.btn:hover {
+				background-color: #e63355;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>💡 家电专场</h1>
+				<p>智能家电，品质生活！全场家电8折起，买就送好礼！</p>
+			</div>
+
+			<div class="promotion-banner">
+				<h3>🔥 家电钜惠来袭</h3>
+				<p>满1000减100，满3000减400，满5000减800！限时抢购，先到先得！</p>
+				<a href="#" class="btn">立即抢购</a>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">大家电</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/homeappliances_1.jpg" alt="智能电冰箱" class="product-image">
+						<div class="product-name">智能电冰箱</div>
+						<div class="product-desc">580L大容量，无霜制冷，智能温控，节能静音</div>
+						<div class="product-price">¥4999 <span>¥6999</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/homeappliances_2.jpg" alt="变频空调" class="product-image">
+						<div class="product-name">变频空调</div>
+						<div class="product-desc">大1.5匹，冷暖两用，节能省电，快速制冷</div>
+						<div class="product-price">¥2599 <span>¥3499</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/homeappliances_3.jpg" alt="滚筒洗衣机" class="product-image">
+						<div class="product-name">滚筒洗衣机</div>
+						<div class="product-desc">10kg大容量，智能洗涤，变频静音，省水省电</div>
+						<div class="product-price">¥3299 <span>¥4599</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/homeappliances_4.jpg" alt="电视机" class="product-image">
+						<div class="product-name">智能电视机</div>
+						<div class="product-desc">65英寸4K超清，智能语音，hdr解码，护眼模式</div>
+						<div class="product-price">¥4599 <span>¥6299</span></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">小家电</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/homeappliances_5.jpg" alt="空气净化器" class="product-image">
+						<div class="product-name">空气净化器</div>
+						<div class="product-desc">智能除醛，HEPA滤网，静音运行，高效净化</div>
+						<div class="product-price">¥1299 <span>¥1799</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/homeappliances_6.jpg" alt="智能扫地机器人" class="product-image">
+						<div class="product-name">智能扫地机器人</div>
+						<div class="product-desc">激光导航，扫拖一体，自动充电，智能规划</div>
+						<div class="product-price">¥2199 <span>¥3199</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/homeappliances_7.jpg" alt="智能电饭煲" class="product-image">
+						<div class="product-name">智能电饭煲</div>
+						<div class="product-desc">5L大容量，IH加热，智能预约，口感可调</div>
+						<div class="product-price">¥599 <span>¥899</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/homeappliances_8.jpg" alt="多功能料理机" class="product-image">
+						<div class="product-name">多功能料理机</div>
+						<div class="product-desc">破壁榨汁，智能烹饪，多档调节，安全耐用</div>
+						<div class="product-price">¥899 <span>¥1299</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

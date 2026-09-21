@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>家具专场 - 惠美平台</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Microsoft YaHei', Arial, sans-serif;
+				background-color: #f8f8f8;
+				color: #333;
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.page-header {
+				background: linear-gradient(135deg, #ff4466 0%, #ff6688 100%);
+				color: white;
+				padding: 30px 0;
+				text-align: center;
+				margin-bottom: 30px;
+				border-radius: 8px;
+			}
+			.page-header h1 {
+				font-size: 32px;
+				margin-bottom: 10px;
+			}
+			.page-header p {
+				font-size: 16px;
+				opacity: 0.9;
+			}
+			.product-section {
+				margin-bottom: 40px;
+			}
+			.section-title {
+				font-size: 24px;
+				color: #333;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+				border-bottom: 2px solid #ff4466;
+			}
+			.product-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+			}
+			.product-card {
+				background: white;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+			}
+			.product-image {
+				width: 100%;
+				height: 200px;
+				border-radius: 6px;
+				margin-bottom: 15px;
+				object-fit: cover;
+			}
+			.product-name {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				color: #333;
+			}
+			.product-desc {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 15px;
+				line-height: 1.5;
+			}
+			.product-price {
+				font-size: 22px;
+				color: #ff4466;
+				font-weight: bold;
+			}
+			.product-price span {
+				font-size: 14px;
+				color: #999;
+				text-decoration: line-through;
+				margin-left: 10px;
+			}
+			.promotion-banner {
+				background: linear-gradient(45deg, #ff4466, #ff8899);
+				color: white;
+				padding: 20px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+			}
+			.promotion-banner h3 {
+				margin-bottom: 10px;
+			}
+			.btn {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #ff4466;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.3s ease;
+			}
+			.btn:hover {
+				background-color: #e63355;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>🛋️ 家具专场</h1>
+				<p>打造温馨家，品质家具任你选！</p>
+			</div>
+
+			<div class="promotion-banner">
+				<h3>🏠 家具特惠季</h3>
+				<p>全场家具5折起，满2000减300，满5000减800！</p>
+				<a href="#" class="btn">立即购买</a>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">客厅家具</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/furniture_1.jpg" alt="现代布艺沙发" class="product-image">
+						<div class="product-name">现代布艺沙发</div>
+						<div class="product-desc">北欧风格，舒适海绵填充，多种颜色可选</div>
+						<div class="product-price">¥3999 <span>¥5999</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/furniture_2.jpg" alt="实木茶几" class="product-image">
+						<div class="product-name">实木茶几</div>
+						<div class="product-desc">橡木材质，简约设计，储物功能</div>
+						<div class="product-price">¥1599 <span>¥2499</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/furniture_3.jpg" alt="电视柜" class="product-image">
+						<div class="product-name">简约电视柜</div>
+						<div class="product-desc">现代简约，大容量收纳，可伸缩设计</div>
+						<div class="product-price">¥2199 <span>¥3299</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/furniture_4.jpg" alt="装饰落地灯" class="product-image">
+						<div class="product-name">现代落地灯</div>
+						<div class="product-desc">北欧风格，LED光源，可调节亮度</div>
+						<div class="product-price">¥599 <span>¥899</span></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">卧室家具</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="images/furniture_5.jpg" alt="双人床" class="product-image">
+						<div class="product-name">实木双人床</div>
+						<div class="product-desc">1.8米大床，环保木材，静音床板</div>
+						<div class="product-price">¥3599 <span>¥5299</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/furniture_6.jpg" alt="衣柜" class="product-image">
+						<div class="product-name">四门衣柜</div>
+						<div class="product-desc">大容量储物，推拉门设计，环保板材</div>
+						<div class="product-price">¥4299 <span>¥6499</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/furniture_7.jpg" alt="床头柜" class="product-image">
+						<div class="product-name">简约床头柜</div>
+						<div class="product-desc">实木框架，抽屉设计，温馨实用</div>
+						<div class="product-price">¥699 <span>¥999</span></div>
+					</div>
+					<div class="product-card">
+						<img src="images/furniture_8.jpg" alt="化妆台" class="product-image">
+						<div class="product-name">梳妆台</div>
+						<div class="product-desc">多功能设计，带镜子，储物空间充足</div>
+						<div class="product-price">¥1899 <span>¥2799</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

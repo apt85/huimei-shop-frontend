@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新人专享 - 惠美平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .welcome-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+
+        .welcome-section p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .register-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .register-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+
+        .benefit-card p {
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        .coupon-section {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .coupon-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .coupons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .coupon-card {
+            background: linear-gradient(135deg, #ffd93d, #ff6b6b);
+            color: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .coupon-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 217, 61, 0.4);
+        }
+
+        .coupon-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .coupon-condition {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .recommended-products {
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .recommended-products h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .product-price {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .add-cart-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-cart-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            .benefits-container,
+            .coupons,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎁 新人专享福利</h1>
+            <p>新用户注册立享 100 元优惠券 · 首单满 99 减 30</p>
+        </header>
+
+        <div class="welcome-section">
+            <p>欢迎加入惠美平台！注册即可获得专属新人福利，立即开启您的购物之旅吧！</p>
+            <button class="register-btn">立即注册</button>
+        </div>
+
+        <div class="benefits-container">
+            <div class="benefit-card">
+                <div class="benefit-icon">🎁</div>
+                <h3>新人礼包</h3>
+                <p>新用户注册即送 100 元大礼包，包含多张优惠券，可叠加使用。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💸</div>
+                <h3>首单优惠</h3>
+                <p>首单满 99 减 30，满 199 减 60，更多优惠等你来享。</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">⚡</div>
+                <h3>闪电发货</h3>
+                <p>新人专享快速发货通道，商品下单后 24 小时内发货。</p>
+            </div>
+        </div>
+
+        <div class="coupon-section">
+            <h2>可用优惠券</h2>
+            <div class="coupons">
+                <div class="coupon-card">
+                    <div class="coupon-value">¥100</div>
+                    <div class="coupon-condition">满 200 可用</div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-value">¥50</div>
+                    <div class="coupon-condition">满 100 可用</div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-value">¥30</div>
+                    <div class="coupon-condition">满 99 可用</div>
+                </div>
+                <div class="coupon-card">
+                    <div class="coupon-value">¥20</div>
+                    <div class="coupon-condition">无门槛使用</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recommended-products">
+            <h2>新人必买推荐</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">📱</div>
+                    <div class="product-info">
+                        <div class="product-name">入门级智能手机</div>
+                        <div class="product-price">¥999</span>
+                        <button class="add-cart-btn">加入购物车</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">🎧</div>
+                    <div class="product-info">
+                        <div class="product-name">入耳式蓝牙耳机</div>
+                        <div class="product-price">¥199</span>
+                        <button class="add-cart-btn">加入购物车</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">👔</div>
+                    <div class="product-info">
+                        <div class="product-name">商务休闲衬衫</div>
+                        <div class="product-price">¥99</span>
+                        <button class="add-cart-btn">加入购物车</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">👟</div>
+                    <div class="product-info">
+                        <div class="product-name">舒适运动鞋</div>
+                        <div class="product-price">¥159</span>
+                        <button class="add-cart-btn">加入购物车</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 立即注册按钮
+        document.querySelector('.register-btn').addEventListener('click', function() {
+            alert('欢迎您！注册功能将在后续版本中推出。');
+        });
+
+        // 优惠券点击
+        const couponCards = document.querySelectorAll('.coupon-card');
+        couponCards.forEach(coupon => {
+            coupon.addEventListener('click', function() {
+                const value = this.querySelector('.coupon-value').textContent;
+                const condition = this.querySelector('.coupon-condition').textContent;
+                alert(`已领取优惠券: ${value} (${condition})\n\n优惠券已放入您的账户`);
+            });
+        });
+
+        // 加入购物车按钮
+        const addCartBtns = document.querySelectorAll('.add-cart-btn');
+        addCartBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const product = this.closest('.product-card').querySelector('.product-name').textContent;
+                alert(`商品 "${product}" 已加入购物车！`);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>限时秒杀 - 惠美平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .countdown {
+            text-align: center;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .countdown h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #e74c3c;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .time-item {
+            text-align: center;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            min-width: 80px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .time-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        .seckill-sections {
+            margin-bottom: 30px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .section-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .section-tab {
+            padding: 10px 20px;
+            background: #f8f9fa;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .section-tab.active, .section-tab:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.8rem;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .original-price {
+            font-size: 1rem;
+            color: #95a5a6;
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            background: #e74c3c;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+
+        .stock-info {
+            margin-bottom: 15px;
+        }
+
+        .stock-progress {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            overflow: hidden;
+        }
+
+        .stock-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            transition: width 0.5s;
+        }
+
+        .stock-text {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .buy-btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+        }
+
+        .buy-btn:active {
+            transform: scale(0.95);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .time-item {
+                min-width: 60px;
+                padding: 10px 15px;
+            }
+
+            .time-number {
+                font-size: 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔥 限时秒杀</h1>
+            <p>每天10:00准点开始 · 50%折扣等你来抢</p>
+        </header>
+
+        <div class="countdown">
+            <h2>距离下一场秒杀开始还有:</h2>
+            <div class="time-display">
+                <div class="time-item">
+                    <span class="time-number" id="hours">00</span>
+                    <span class="time-label">小时</span>
+                </div>
+                <div class="time-item">
+                    <span class="time-number" id="minutes">00</span>
+                    <span class="time-label">分钟</span>
+                </div>
+                <div class="time-item">
+                    <span class="time-number" id="seconds">00</span>
+                    <span class="time-label">秒</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="seckill-sections">
+            <h3 style="margin-bottom: 20px; color: #2c3e50;">选择秒杀时间段:</h3>
+            <div class="section-tabs">
+                <button class="section-tab active" data-time="10:00">10:00 场</button>
+                <button class="section-tab" data-time="14:00">14:00 场</button>
+                <button class="section-tab" data-time="18:00">18:00 场</button>
+                <button class="section-tab" data-time="22:00">22:00 场</button>
+            </div>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">👟</div>
+                <div class="product-info">
+                    <div class="product-name">限量版运动鞋</div>
+                    <div class="price-container">
+                        <span class="current-price">¥399</span>
+                        <span class="original-price">¥799</span>
+                        <span class="discount-badge">50% OFF</span>
+                    </div>
+                    <div class="stock-info">
+                        <div class="stock-progress">
+                            <div class="stock-bar" style="width: 30%"></div>
+                        </div>
+                        <div class="stock-text">库存剩余 30%</div>
+                    </div>
+                    <button class="buy-btn">立即抢购</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">👗</div>
+                <div class="product-info">
+                    <div class="product-name">时尚连衣裙</div>
+                    <div class="price-container">
+                        <span class="current-price">¥199</span>
+                        <span class="original-price">¥399</span>
+                        <span class="discount-badge">50% OFF</span>
+                    </div>
+                    <div class="stock-info">
+                        <div class="stock-progress">
+                            <div class="stock-bar" style="width: 65%"></div>
+                        </div>
+                        <div class="stock-text">库存剩余 65%</div>
+                    </div>
+                    <button class="buy-btn">立即抢购</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">📱</div>
+                <div class="product-info">
+                    <div class="product-name">最新款智能手机</div>
+                    <div class="price-container">
+                        <span class="current-price">¥2,999</span>
+                        <span class="original-price">¥5,999</span>
+                        <span class="discount-badge">50% OFF</span>
+                    </div>
+                    <div class="stock-info">
+                        <div class="stock-progress">
+                            <div class="stock-bar" style="width: 15%"></div>
+                        </div>
+                        <div class="stock-text">库存剩余 15%</div>
+                    </div>
+                    <button class="buy-btn">立即抢购</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">💻</div>
+                <div class="product-info">
+                    <div class="product-name">轻薄笔记本电脑</div>
+                    <div class="price-container">
+                        <span class="current-price">¥3,999</span>
+                        <span class="original-price">¥7,999</span>
+                        <span class="discount-badge">50% OFF</span>
+                    </div>
+                    <div class="stock-info">
+                        <div class="stock-progress">
+                            <div class="stock-bar" style="width: 40%"></div>
+                        </div>
+                        <div class="stock-text">库存剩余 40%</div>
+                    </div>
+                    <button class="buy-btn">立即抢购</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">🎧</div>
+                <div class="product-info">
+                    <div class="product-name">无线蓝牙耳机</div>
+                    <div class="price-container">
+                        <span class="current-price">¥149</span>
+                        <span class="original-price">¥299</span>
+                        <span class="discount-badge">50% OFF</span>
+                    </div>
+                    <div class="stock-info">
+                        <div class="stock-progress">
+                            <div class="stock-bar" style="width: 75%"></div>
+                        </div>
+                        <div class="stock-text">库存剩余 75%</div>
+                    </div>
+                    <button class="buy-btn">立即抢购</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">⌚</div>
+                <div class="product-info">
+                    <div class="product-name">智能手表</div>
+                    <div class="price-container">
+                        <span class="current-price">¥499</span>
+                        <span class="original-price">¥999</span>
+                        <span class="discount-badge">50% OFF</span>
+                    </div>
+                    <div class="stock-info">
+                        <div class="stock-progress">
+                            <div class="stock-bar" style="width: 25%"></div>
+                        </div>
+                        <div class="stock-text">库存剩余 25%</div>
+                    </div>
+                    <button class="buy-btn">立即抢购</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 倒计时功能
+        function updateCountdown() {
+            // 设置下一场秒杀时间为10:00、14:00、18:00、22:00
+            const now = new Date();
+            let hours = now.getHours();
+            let nextHour;
+
+            if (hours < 10) {
+                nextHour = 10;
+            } else if (hours < 14) {
+                nextHour = 14;
+            } else if (hours < 18) {
+                nextHour = 18;
+            } else if (hours < 22) {
+                nextHour = 22;
+            } else {
+                nextHour = 10;
+                // 明天
+            }
+
+            const nextTime = new Date(now);
+            nextTime.setHours(nextHour, 0, 0, 0);
+            
+            // 如果当前时间已经过了今天的所有秒杀时间，设置为明天10点
+            if (hours >= 22) {
+                nextTime.setDate(nextTime.getDate() + 1);
+            }
+
+            const diff = nextTime - now;
+            const h = Math.floor(diff / (1000 * 60 * 60));
+            const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('hours').textContent = String(h).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(m).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(s).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 秒杀时间段选择
+        const tabs = document.querySelectorAll('.section-tab');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                alert(`您选择了${this.dataset.time}场秒杀`);
+            });
+        });
+
+        // 立即抢购按钮
+        const buyBtns = document.querySelectorAll('.buy-btn');
+        buyBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('商品已加入购物车!');
+            });
+        });
+    </script>
+</body>
+</html>

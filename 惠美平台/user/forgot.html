@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>找回账号名</title>
+	</head>
+	<style>
+		body{
+			background-color: #f5f5f5;
+			padding: 100px 0;
+		}
+		.input-item{
+		    width: 100%;
+		    height: 40px;
+		    margin-bottom: 20px;
+		    padding: 0 10px;
+		    border: 1px solid #ddd;
+		    border-radius: 4px;
+		    font-size: 14px;
+		    color: #333;
+		}
+		.forgot-container{
+			width: 800px;
+			height: 400px;
+			background-color: #fff;
+			margin: 0 auto;
+			border-radius: 8px;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+			padding: 50px 50px;
+		}
+		.slider-verify {
+			width: 100%;
+			height: 40px;
+			background: #f5f5f5;
+			border-radius: 20px;
+			position: relative;
+			margin: 20px 0;
+			overflow: hidden;
+					}
+		.slider-btn {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 40px;
+			height: 40px;
+			background: #fff;
+			border-radius: 50%;
+			box-shadow: 0 0 5px #ddd;
+			cursor: pointer;
+			z-index: 2;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.slider-btn::after {
+			content: "→";
+			color: #666;
+			font-size: 16px;
+		}
+		.slider-fill {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 0;
+			background: #0088ff;
+			z-index: 1;
+		}
+		.slider-tip {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			line-height: 40px;
+			text-align: center;
+			font-size: 14px;
+			color: #666;
+			z-index: 0;
+		}
+		.submit-btn {
+			width: 100%;
+			height: 45px;
+			background: #ccc;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			font-size: 16px;
+			cursor: not-allowed;
+		}
+		.submit-btn.active {
+			background: #0088ff;
+			cursor: pointer;
+		}
+	</style>
+	<body>
+		<div class="forgot-container">
+			<p>请输入你的身份证号和真实姓名用于找回账号名(目前只支持已完成支付宝实名认证的用户)</p>
+			<label>身份证号：</label>
+			<input type="text" class="input-item" id="idcard" name="idcard" placeholder="请输入身份证号码" required>
+			<label>真实姓名:</label>
+			<input type="text" class="input-item" id="name" name="name" placeholder="请输入真实姓名" required>
+			<div class="slider-verify" id="sliderVerify">
+			    <div class="slider-fill" id="sliderFill"></div>
+			    <div class="slider-btn" id="sliderBtn"></div>
+			    <div class="slider-tip" id="sliderTip">滑动验证</div>
+			</div>
+			<button class="submit-btn" id="submitBtn" disabled>确定</button>
+			<script>
+						const sliderBtn = document.getElementById('sliderBtn');
+						const sliderFill = document.getElementById('sliderFill');
+						const sliderTip = document.getElementById('sliderTip');
+						const sliderVerify = document.getElementById('sliderVerify');
+						const submitBtn = document.getElementById('submitBtn');
+						
+						let isDragging = false;
+						const maxWidth = sliderVerify.offsetWidth;
+						const btnWidth = sliderBtn.offsetWidth;
+						sliderBtn.addEventListener('mousedown', () => {
+							isDragging = true;
+							sliderBtn.style.transition = 'none';
+							sliderFill.style.transition = 'none';
+						});
+						document.addEventListener('mousemove', (e) => {
+							if (!isDragging) return;
+							const left = e.clientX - sliderVerify.getBoundingClientRect().left - btnWidth/2;
+							const realLeft = Math.max(0, Math.min(left, maxWidth - btnWidth));
+							sliderBtn.style.left = realLeft + 'px';
+							sliderFill.style.width = realLeft + btnWidth + 'px';
+						});
+						document.addEventListener('mouseup', () => {
+							if (!isDragging) return;
+							isDragging = false;
+							if (parseFloat(sliderBtn.style.left) >= maxWidth - btnWidth - 5) {
+								sliderFill.style.width = maxWidth + 'px';
+								sliderBtn.style.left = maxWidth - btnWidth + 'px';
+								sliderTip.textContent = '验证成功';
+								sliderTip.style.color = '#00cc66';
+								submitBtn.classList.add('active');
+								sliderBtn.style.cursor = 'default';
+							} else {
+								sliderBtn.style.left = '0px';
+								sliderFill.style.width = '0px';
+							}
+						});
+						submitBtn.addEventListener('click', () => {
+							if (submitBtn.classList.contains('active')) {
+								alert('验证通过，即将提交！');
+							} else {
+								alert('请先完成滑动验证');
+							}
+						});
+					</script>
+		</div>
+	</body>
+</html>

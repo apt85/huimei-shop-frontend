@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>食品分类 - 惠美平台</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				font-family: 'Microsoft YaHei', Arial, sans-serif;
+				background-color: #f8f8f8;
+				color: #333;
+			}
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+			.page-header {
+				background: linear-gradient(135deg, #ffaa44 0%, #ffcc88 100%);
+				color: white;
+				padding: 30px 0;
+				text-align: center;
+				margin-bottom: 30px;
+				border-radius: 8px;
+			}
+			.page-header h1 {
+				font-size: 32px;
+				margin-bottom: 10px;
+			}
+			.page-header p {
+				font-size: 16px;
+				opacity: 0.9;
+			}
+			.product-section {
+				margin-bottom: 40px;
+			}
+			.section-title {
+				font-size: 24px;
+				color: #333;
+				margin-bottom: 20px;
+				padding-bottom: 10px;
+				border-bottom: 2px solid #ffaa44;
+			}
+			.product-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 20px;
+			}
+			.product-card {
+				background: white;
+				border-radius: 8px;
+				padding: 20px;
+				box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+				transition: all 0.3s ease;
+			}
+			.product-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+			}
+			.product-image {
+				width: 100%;
+				height: 200px;
+				border-radius: 6px;
+				margin-bottom: 15px;
+				object-fit: cover;
+			}
+			.product-name {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 10px;
+				color: #333;
+			}
+			.product-desc {
+				font-size: 14px;
+				color: #666;
+				margin-bottom: 15px;
+				line-height: 1.5;
+			}
+			.product-price {
+				font-size: 22px;
+				color: #ffaa44;
+				font-weight: bold;
+			}
+			.product-price span {
+				font-size: 14px;
+				color: #999;
+				text-decoration: line-through;
+				margin-left: 10px;
+			}
+			.promotion-banner {
+				background: linear-gradient(45deg, #ffaa44, #ffddaa);
+				color: white;
+				padding: 20px;
+				border-radius: 8px;
+				margin-bottom: 30px;
+			}
+			.promotion-banner h3 {
+				margin-bottom: 10px;
+			}
+			.btn {
+				display: inline-block;
+				padding: 10px 20px;
+				background-color: #ffaa44;
+				color: white;
+				text-decoration: none;
+				border-radius: 4px;
+				transition: background-color 0.3s ease;
+			}
+			.btn:hover {
+				background-color: #ee9933;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>🍔 食品分类</h1>
+				<p>美味食品，健康生活，新鲜之选</p>
+			</div>
+
+			<div class="promotion-banner">
+				<h3>🍽️ 美食特惠</h3>
+				<p>全场食品6折起，满100减20，满300减80！</p>
+				<a href="#" class="btn">立即抢购</a>
+			</div>
+
+			<div class="product-section">
+				<h2 class="section-title">热门食品</h2>
+				<div class="product-grid">
+					<div class="product-card">
+						<img src="../slideshow/images/snacks_1.jpg" alt="香脆薯片大礼包" class="product-image">
+						<div class="product-name">香脆薯片大礼包</div>
+						<div class="product-desc">多种口味，香脆可口，休闲必备</div>
+						<div class="product-price">¥99 <span>¥159</span></div>
+					</div>
+					<div class="product-card">
+						<img src="../slideshow/images/snacks_2.jpg" alt="进口巧克力礼盒" class="product-image">
+						<div class="product-name">进口巧克力礼盒</div>
+						<div class="product-desc">纯可可脂，浓郁丝滑，送礼佳品</div>
+						<div class="product-price">¥199 <span>¥299</span></div>
+					</div>
+					<div class="product-card">
+						<img src="../slideshow/images/snacks_3.jpg" alt="有机坚果组合" class="product-image">
+						<div class="product-name">有机坚果组合</div>
+						<div class="product-desc">健康营养，口感丰富，每日必备</div>
+						<div class="product-price">¥159 <span>¥239</span></div>
+					</div>
+					<div class="product-card">
+						<img src="../slideshow/images/snacks_4.jpg" alt="即食燕麦片" class="product-image">
+						<div class="product-name">即食燕麦片</div>
+						<div class="product-desc">免煮速食，营养丰富，健康早餐</div>
+						<div class="product-price">¥69 <span>¥99</span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

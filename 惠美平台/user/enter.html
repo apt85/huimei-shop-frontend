@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>登录界面</title>
+	</head>
+	<style>
+		body {
+		            background-color: #f5f5f5;
+		            padding: 100px 0;
+		    }
+		.login-container {
+		            width: 800px;
+		            height: 400px;
+		            background-color: #fff;
+		            margin: 0 auto;
+		            border-radius: 8px;
+		            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+					padding: 50px 50px;
+		        }
+        .login-tabs {
+            margin-bottom: 30px;
+			text-align: center;
+        }
+        .login-tabs a {
+            font-size: 20px;
+            margin-right: 20px;
+            text-decoration: none;
+        }
+        .login-tabs .active {
+            color: #ffaa00;
+            font-weight: bold;
+        }
+        .login-tabs .normal {
+            color: #000000;
+        }
+        .input-item{
+            width: 100%;
+            height: 40px;
+            margin-bottom: 20px;
+            padding: 0 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #333;
+        }
+        .password-group {
+            position: relative;
+			width:100%;
+        }
+        .forget-pwd {
+            position: absolute;
+            right: 15px;
+            top: 20%;
+            font-size: 12px;
+            color: #999;
+            text-decoration: none;
+        }
+		.forget-pwd:hover {
+			color:#ff8c00;
+		}
+        .login-btn {
+            width: 100%;
+            height: 45px;
+            background-color: #ffaa00;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        .login-btn:hover {
+            background-color: #ff8c00;
+        }
+        .helper-links {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 20px;
+			text-align:center;
+        }
+        .helper-links a {
+            color: #999;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .helper-links a:hover {
+            color: #ff4400;
+        }
+        .agreement {
+            font-size: 12px;
+            color: #999;
+        }
+        .agreement a {
+            color: #ff4400;
+            text-decoration: none;
+        }
+	</style>
+	<body>
+	<div class="login-container">
+            <div class="login-tabs">
+                <a href="user/enter.html" class="active">密码登录</a>
+				<a>|</a>
+                <a href="note.html" class="normal">短信登录</a>
+            </div>
+            <form>
+                <input type="text" class="input-item" id="name" name="name" placeholder="账号名/邮箱/手机号" required>
+                <div class="password-group">
+                    <input type="password" class="input-item" id="password" name="password" placeholder="请输入登录密码" required>
+                    <a href="forgot password.html" class="forget-pwd">忘记密码</a>
+                </div>
+                <input type="submit" class="login-btn" value="登录">
+                <div class="helper-links">
+					<a href="QR code.html">扫码登录</a>
+					<a>|</a>
+					<a href="../zfb/zfbenter.html" target="_blank">支付宝登录</a>
+					<a>|</a>
+                    <a href="forgot.html">忘记账号</a> 
+					<a>|</a> 
+                    <a href="login.html">免费注册</a>
+                </div>
+				<div class="agreement">
+					<input type="radio" name="agreement" value="agreement">已阅读并同意以下协议<a>惠美平台服务协议</a>、<a>隐私权政策</a>、<a>法律声明</a>、<a>支付宝及客服端服务协议</a>
+				</div>
+		    </form>
+	</div>
+	</body>
+</html>

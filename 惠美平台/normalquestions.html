@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见问题 - 惠美平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .faq-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .faq-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        
+        .faq-section h2 {
+            color: #667eea;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e8ecf1;
+        }
+        
+        .faq-section h3 {
+            color: #333;
+            font-size: 1.4rem;
+            margin: 25px 0 15px;
+            color: #667eea;
+        }
+        
+        ol, ul {
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .faq-item {
+            font-weight: 500;
+            color: #333;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .faq-item:hover {
+            color: #667eea;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .faq-section {
+                padding: 20px;
+            }
+            
+            .faq-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>常见问题</h1>
+            <p class="subtitle">我们的专业团队随时为您提供帮助</p>
+        </header>
+
+        <div class="faq-section">
+            <h2>交易问题</h2>
+            <ol>
+                <li class="faq-item">我拍下来后的商品什么时候发货？</li>
+                <li class="faq-item">已成团未发货如何退款？</li>
+                <li class="faq-item">没有收到货/商家发错地址了怎么办？</li>
+                <li class="faq-item">收到商品有问题怎么办？</li>
+                <li class="faq-item">如何联系商家客服？</li>
+                <li class="faq-item">为什么我的优惠券不能使用？</li>
+                <li class="faq-item">“全网总售”和“已拼”有什么区别？</li>
+                <li class="faq-item">收到的商品能退换货么？</li>
+            </ol>
+        </div>
+
+        <div class="faq-section">
+            <h2>知识产权保护规则</h2>
+            <p>我们尊重并保护所有知识产权，包括商标权、专利权和著作权。请确保您在平台上的行为符合相关法律法规。</p>
+        </div>
+
+        <div class="faq-section">
+            <h2>退款 & 售后</h2>
+            <ul>
+                <li class="faq-item">退换货流程</li>
+                <li class="faq-item">退换货规则</li>
+                <li class="faq-item">7天无理由退换货</li>
+            </ul>
+        </div>
+
+        <div class="faq-section">
+            <h2>账户相关</h2>
+            <ul>
+                <li class="faq-item">账户安全与账户信息</li>
+            </ul>
+        </div>
+
+        <div class="faq-section">
+            <h2>质量学院</h2>
+            <ul>
+                <li class="faq-item">质量百科</li>
+                <li class="faq-item">法律规范</li>
+                <li class="faq-item">信息查询</li>
+            </ul>
+        </div>
+
+        <div class="faq-section">
+            <h2>联系我们</h2>
+            <ul>
+                <li class="faq-item">如何联系惠美官方客服？</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // 添加点击交互效果
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
